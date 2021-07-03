@@ -1,0 +1,66 @@
+@import '../styles/index.less';
+
+@scroll-menu-prefix-cls: ~'@{css-prefix}-scroll-menu';
+
+.@{scroll-menu-prefix-cls} {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &-nav {
+    min-width: 72px;
+    max-width: 30%;
+    font-size: @font-size-md;
+    color: @font-color-weight;
+    font-weight: @font-weight-bold;
+    background-color: @gray-2;
+    flex-shrink: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+
+    &__label {
+      .ellipsis();
+
+      padding: 0 @padding-md;
+      box-sizing: border-box;
+      height: 44px;
+      line-height: 44px;
+      text-align: center;
+      cursor: pointer;
+
+      &--active {
+        color: @primary-weight;
+        background-color: @white;
+      }
+    }
+  }
+
+  &-box {
+    position: relative;
+    flex-grow: 1;
+    padding: 0 @padding-sm;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+
+    &__item--title {
+      font-size: @font-size-sm;
+      height: 44px;
+      line-height: 44px;
+      color: @font-color-weight;
+      font-weight: @font-weight-bolder;
+      background-color: @white;
+
+      &--sticky {
+        position: sticky;
+        top: 0;
+      }
+    }
+  }
+}

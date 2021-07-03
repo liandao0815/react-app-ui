@@ -1,0 +1,58 @@
+@import '../styles/index.less';
+
+@checkbox-prefix-cls: ~'@{css-prefix}-checkbox';
+
+.@{checkbox-prefix-cls} {
+  display: flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+
+  &-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    font-size: @font-size-sm;
+    border-radius: 50%;
+    border: 1px solid #dfdfdf;
+    background-color: @white;
+    box-sizing: border-box;
+    transition: 0.15s background-color;
+  }
+
+  &-label {
+    font-size: @font-size-lg;
+    color: @font-color-weight;
+  }
+
+  &__checked {
+
+    .@{checkbox-prefix-cls}-input {
+      color: @primary-base;
+      border: none;
+      background-color: @primary-choosed;
+    }
+
+    .@{checkbox-prefix-cls}-label {
+      color: @primary-base;
+    }
+  }
+
+  &__disabled {
+    cursor: not-allowed;
+
+    .@{checkbox-prefix-cls}-input {
+      color: @gray-7;
+      border: none;
+      background-color: @gray-4;
+    }
+
+    .@{checkbox-prefix-cls}-label {
+      color: @gray-7;
+    }
+  }
+}

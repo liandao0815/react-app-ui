@@ -1,0 +1,20 @@
+@import './variable.less';
+
+/* Mask */
+.common-mask-style {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: @z-index-md;
+}
+
+.@{css-prefix}-mask {
+  &:extend(.common-mask-style);
+  background-color: @background-mask;
+
+  &--transparent {
+    &:extend(.common-mask-style);
+  }
+}

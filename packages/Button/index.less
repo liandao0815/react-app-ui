@@ -1,0 +1,65 @@
+@import '../styles/index.less';
+
+@button-prefix-cls: ~'@{css-prefix}-button';
+
+.@{button-prefix-cls} {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px @padding-sm;
+  text-align: center;
+  box-sizing: border-box;
+  line-height: @line-height-md;
+  font-size: @font-size-md;
+  border-radius: @border-radius-base;
+  user-select: none;
+  cursor: pointer;
+
+  &:active:not(&__disabled) {
+    opacity: @opacity-active;
+  }
+
+  &__primary {
+    color: @white;
+    font-weight: @font-weight-bold;
+    background-color: @primary-base;
+  }
+
+  &__optional {
+    color: @font-color-base;
+    background-color: @background-first;
+  }
+
+  &__selected {
+    color: @primary-weight;
+    font-weight: @font-weight-bold;
+    background-color: @primary-active;
+  }
+
+  &__border {
+    color: @font-color-light;
+    border: 1px solid @border-color;
+  }
+
+  &__large {
+    width: 100%;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    line-height: @line-height-lg;
+    font-size: @font-size-lg;
+    font-weight: @font-weight-bold;
+  }
+
+  &__circle {
+    border-radius: @border-radius-max;
+  }
+
+  &__disabled {
+    opacity: @opacity-disabled;
+    cursor: not-allowed;
+  }
+
+  .@{button-prefix-cls}-icon + .@{button-prefix-cls}-content {
+    margin-left: 6px;
+  }
+}

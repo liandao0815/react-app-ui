@@ -1,0 +1,71 @@
+@import '../styles/index.less';
+
+@tree-select-prefix-cls: ~'@{css-prefix}-tree-select';
+
+.@{tree-select-prefix-cls} {
+  display: flex;
+  height: 100%;
+  color: @font-color-weight;
+  font-size: @font-size-md;
+
+  &-column {
+    position: relative;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+
+  &-cell {
+    .ellipsis();
+
+    height: 44px;
+    line-height: 44px;
+    padding: 0 @padding-md;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &--disabled {
+      color: @font-color-light;
+      cursor: not-allowed;
+    }
+  }
+
+  .tree-select-cell-active {
+    color: @primary-weight;
+  }
+
+  /*
+   * 默认 column 样式，也可通过 Props
+   * (columnStyles, columnClassPrefix, activeCellClassName)
+   * 来覆盖样式
+   */
+  .tree-select-column__0 {
+    flex-shrink: 0;
+    flex-basis: 80px;
+    background-color: @background-third;
+    text-align: center;
+
+    .tree-select-cell-active {
+      background-color: @background-first;
+    }
+  }
+
+  .tree-select-column__1 {
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 132px;
+    background-color: @background-first;
+
+    .tree-select-cell-active {
+      background-color: @background-base;
+    }
+  }
+
+  .tree-select-column__2 {
+    flex-grow: 1;
+    width: 100%;
+    background-color: @background-base;
+  }
+}

@@ -1,0 +1,49 @@
+@import '../styles/index.less';
+
+@drop-down-prefix-cls: ~'@{css-prefix}-drop-down';
+
+.@{drop-down-prefix-cls} {
+
+  &-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    padding: 0 @padding-xs;
+    box-sizing: border-box;
+    font-size: @font-size-md;
+    cursor: pointer;
+
+    &__title {
+      .ellipsis();
+      
+      .@{css-prefix}-icon {
+        color: @font-color-base;
+      }
+    }
+
+    &__caret {
+      flex-shrink: 0;
+      color: @font-color-base;
+      transform-origin: center;
+      transition: transform @transition-duration-fast;
+    }
+
+    &__title + &__caret {
+      margin-left: 6px;
+    }
+
+    &--active {
+      color: @primary-weight;
+      font-weight: @font-weight-bold;
+
+      .@{css-prefix}-icon {
+        color: @primary-weight;
+      }
+    }
+
+    &--active &__caret {
+      transform: rotate(180deg);
+    }
+  }
+}

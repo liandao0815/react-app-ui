@@ -1,0 +1,109 @@
+@import './variable.less';
+
+.@{css-prefix}-transition {
+  /* Fade */
+  &--fade-enter,
+  &--fade-appear,
+  &--fade-exit-done {
+    opacity: 0;
+  }
+  &--fade-appear-active,
+  &--fade-enter-active {
+    opacity: 1;
+    transition: opacity @transition-duration-fast;
+  }
+  &--fade-exit,
+  &--fade-enter-done {
+    opacity: 1;
+  }
+  &--fade-exit-active {
+    opacity: 0;
+    transition: opacity @transition-duration-fast;
+  }
+
+  /* SlideUp */
+  &--slide-up-enter,
+  &--slide-up-appear,
+  &--slide-up-exit-done {
+    transform: translate3d(0, 100%, 0);
+  }
+  &--slide-up-enter-active,
+  &--slide-up-appear-active {
+    transform: translate3d(0, 0, 0);
+    transition: transform @transition-duration-fast;
+  }
+  &--slide-up-exit,
+  &--slide-up-enter-done {
+    transform: translate3d(0, 0, 0);
+  }
+  &--slide-up-exit-active {
+    transform: translate3d(0, 100%, 0);
+    transition: transform @transition-duration-fast;
+  }
+
+  /* SlideDown */
+  &--slide-down-enter,
+  &--slide-down-appear,
+  &--slide-down-exit-done {
+    transform: translate3d(0, -100%, 0);
+  }
+  &--slide-down-enter-active,
+  &--slide-down-appear-active {
+    transform: translate3d(0, 0, 0);
+    transition: transform @transition-duration-fast;
+  }
+  &--slide-down-exit,
+  &--slide-down-enter-done {
+    transform: translate3d(0, 0, 0);
+  }
+  &--slide-down-exit-active {
+    transform: translate3d(0, -100%, 0);
+    transition: transform @transition-duration-fast;
+  }
+
+  /* SlideLeft */
+  &--slide-left-enter,
+  &--slide-left-appear,
+  &--slide-left-exit-done {
+    transform: translate3d(100%, 0, 0);
+  }
+
+  &--slide-left-enter-active,
+  &--slide-left-appear-active {
+    transform: translate3d(0, 0, 0);
+    transition: transform @transition-duration-fast;
+  }
+
+  &--slide-left-exit,
+  &--slide-left-enter-done {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &--slide-left-exit-active {
+    transform: translate3d(100%, 0, 0);
+    transition: transform @transition-duration-fast;
+  }
+
+  /* SlideRight */
+  &--slide-right-enter,
+  &--slide-right-appear,
+  &--slide-right-exit-done {
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  &--slide-right-enter-active,
+  &--slide-right-appear-active {
+    transform: translate3d(0, 0, 0);
+    transition: transform @transition-duration-fast;
+  }
+
+  &--slide-right-exit,
+  &--slide-right-enter-done {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &--slide-right-exit-active {
+    transform: translate3d(-100%, 0, 0);
+    transition: transform @transition-duration-fast;
+  }
+}

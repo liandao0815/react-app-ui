@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "declarationDir": "./lib",
+    "emitDeclarationOnly": true
+  },
+  "include": ["./packages"],
+  "exclude": ["./packages/**/__story__", "./packages/**/__test__"]
+}

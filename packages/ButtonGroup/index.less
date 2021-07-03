@@ -1,0 +1,19 @@
+@import '../styles/index.less';
+
+@button-group-prefix-cls: ~'@{css-prefix}-button-group';
+
+.@{button-group-prefix-cls} {
+  width: calc(100% - 16px);
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+  justify-content: space-between;
+  gap: 8px;
+
+  .@{button-group-prefix-cls}__button {
+    width: 100%;
+
+    span {
+      .ellipsis();
+    }
+  }
+}

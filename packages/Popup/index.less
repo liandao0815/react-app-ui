@@ -1,0 +1,103 @@
+@import '../styles/index.less';
+@import '../styles/animation.less';
+
+@popup-prefix-cls: ~'@{css-prefix}-popup';
+
+.@{popup-prefix-cls} {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  display: none;
+  z-index: @z-index-lg;
+
+  &-overflow-hidden {
+    overflow: hidden !important;
+  }
+
+  &__visible {
+    display: block;
+  }
+
+  &-mask {
+    position: absolute !important;
+  }
+
+  &-content {
+    position: relative;
+    width: 100%;
+    background-color: @white;
+    z-index: @z-index-lg;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+
+    &__center,
+    &__top,
+    &__bottom,
+    &__left,
+    &__right {
+      position: absolute;
+    }
+
+    &__center {
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    &__top {
+      left: 0;
+      top: 0;
+      max-height: 100%;
+
+      &--round {
+        border-radius: 0 0 @border-radius-lg @border-radius-lg;
+      }
+    }
+
+    &__bottom {
+      left: 0;
+      bottom: 0;
+      max-height: 100%;
+
+      &--round {
+        border-radius: @border-radius-lg @border-radius-lg 0 0;
+      }
+    }
+
+    &__left {
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+
+      &--round {
+        border-radius: 0 @border-radius-lg @border-radius-lg 0;
+      }
+    }
+
+    &__right {
+      right: 0;
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+
+      &--round {
+        border-radius: @border-radius-lg 0 0 @border-radius-lg;
+      }
+    }
+
+    &__center {
+      width: auto;
+      max-width: 100%;
+      
+      &--round {
+        border-radius: @border-radius-lg;
+      }
+    }
+  }
+}

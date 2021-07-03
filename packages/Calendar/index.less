@@ -1,0 +1,113 @@
+@import '../styles/index.less';
+
+@calendar-prefix-cls: ~'@{css-prefix}-calendar';
+
+.@{calendar-prefix-cls} {
+  position: relative;
+  overflow: hidden;
+  font-size: @font-size-md;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 42px;
+    padding: 0 @padding-xs;
+    box-sizing: border-box;
+
+    &--prev,
+    &--next {
+      font-size: 24px;
+      color: @primary-base;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    &--text {
+      flex: 1;
+      text-align: center;
+      font-weight: @font-weight-bolder;
+      color: @font-color-weight;
+      font-size: @font-size-lg;
+    }
+  }
+
+  &__week {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    justify-content: space-between;
+    color: @font-color-light;
+    font-weight: @font-weight-bolder;
+    padding: 0 6px;
+    box-sizing: border-box;
+    user-select: none;
+
+    &-item {
+      height: 36px;
+      width: 36px;
+      line-height: 36px;
+      text-align: center;
+    }
+  }
+
+  &__panel {
+    position: relative;
+    height: calc(36px * 6);
+  }
+
+  &__panel-box {
+    position: relative;
+    flex-grow: 1;
+    padding: 0 6px;
+    box-sizing: border-box;
+  }
+
+  &__panel-ul {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    justify-content: space-between;
+    font-weight: @font-weight-bolder;
+    overflow: hidden;
+
+    &-item {
+      height: 36px;
+      width: 36px;
+      line-height: 36px;
+      text-align: center;
+      user-select: none;
+
+      &--disabled {
+        color: @font-color-light;
+      }
+
+      &--choosed {
+        color: @font-color-weight;
+      }
+
+      &--selected {
+        color: @white;
+        background-color: @primary-weight;
+        border-radius: 50%;
+      }
+
+      &--selected&--disabled {
+        opacity: @opacity-disabled;
+      }
+    }
+  }
+
+  &__panel-background::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: @gradient-red;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 200px;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+}
